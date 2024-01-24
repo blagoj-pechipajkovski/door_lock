@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>WebVars</title>
+        <script src="WV.js"></script>
+        
+        <style>
+            a[data-webvar] {
+                background-color: lightgray;
+                padding: 0 2px;
+                margin-left: 5px;
+                display: inline-block;
+                min-width: 1em;
+                min-height: 1em;
+            }
+        </style>
+    </head>
+    
+    
+    <body>
+    
+        <button onclick="WebVars.begin();">Load</button>
+        <button onclick="WebVars.begin(true, true);">Load w/ password</button>
+        <br /><br />
+        
+        <input data-webvar="v1" ></input><a data-webvar="v1">[optional placeholder]</a>
+        <br /><br />
+        <input data-webvar="v2" ></input><a data-webvar="v2">[optional placeholder]</a>
+        <br /><br />
+        <input data-webvar="v3" ></input><a data-webvar="v3">[optional placeholder]</a>
+        <br /><br />
+        <input data-webvar="v4" ></input><a data-webvar="v4">[optional placeholder]</a>
+        <br /><br />
+        <input data-webvar="v5" ></input><a data-webvar="v5">[optional placeholder]</a>
+        <br /><br />
+        <input data-webvar="v6" ></input><a data-webvar="v6">[optional placeholder]</a>
+        <br /><br />
+        <input data-webvar="v7" ></input><a data-webvar="v7">[optional placeholder]</a>
+        <br /><br />
+        <input data-webvar="v8" ></input><a data-webvar="v8">[optional placeholder]</a>
+        <br /><br />
+        <input data-webvar="v9" ></input><a data-webvar="v9">[optional placeholder]</a>
+        <br /><br />
+        <input data-webvar="v9" ></input><a data-webvar="v9">[optional placeholder]</a>
+        <br /><br />
+        <input data-webvar="v10" ></input><a data-webvar="v10">v10</a>
+        <br /><br />
+        <input data-webvar="varijabla"></input><a data-webvar="varijabla">[optional placeholder]</a>
+        <br /><br />
+        
+        <button onclick="WebVars.save();">Save</button>
+        <br /><br />
+        
+    </body>
+
+</html>

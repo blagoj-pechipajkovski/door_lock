@@ -1,0 +1,18 @@
+.triptych {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.triptych > * {
+    width: 33.3%;
+}
+
+.triptych > .trt-twothirds { width:66.6%; }
+.triptych > .trt-halfwidth { width:  50%; }
+.triptych > .trt-fullwidth { width: 100%; }
+
+.triptych > .trt-br {
+    display: block;
+    visibility: hidden;
+    width: 100%;
+}

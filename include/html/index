@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Door</title>
+        
+        <link rel="stylesheet" href="flexybox.css">
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <script type="text/javascript">
+            function activate_endpoint(url) {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() {}
+                xmlHttp.open("GET", url, true);
+                xmlHttp.send();
+            }
+            
+/*lop=true;
+do {
+  txt = prompt('vnesi lozinka');
+  console.log(txt);
+  if (txt==null) { console.log('null je'); lop = false; }
+  if (txt=='lozinka') { console.log('lozinka je'); lop = false; }
+} while (lop);
+if (txt=='lozinka') {
+  alert('ok');
+  //window.location.href = 'http://192.168.4.1/settings';
+}*/
+        </script>
+        
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            
+            html {
+                height: 100%;
+            }
+            
+            body {
+                height: 100%;
+                margin:  0;
+                padding: 15px;
+                font-family: Arial;
+                color: #ffffff7f;
+                background-color: #212024;
+            }
+            
+            #main_container {
+                max-width: 500px;
+                margin: auto;
+                min-height: 100%;
+            }
+            
+            #main_container > * {
+                margin-bottom: 15px;
+            }
+            
+            #main_container > *:first-child {
+                margin-top: 15px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id="main_container" class="flexybox-col">
+        
+            <div onclick="activate_endpoint('/unlock');"
+                 class="flexybox" style="width:100%;
+                                         aspect-ratio: 1;
+                                         background-color: #49DC4D;
+                                         font-size: 6.7vmin;
+                                         cursor: pointer;
+                                         border-radius: 100%;">
+                <div>
+                    Open door
+                </div>
+            </div>
+            
+            <div class="flexyfill" style="margin: 0; max-height: 50px;"></div>
+            
+            <div class="flexybox" style="width:100%;
+                                         aspect-ratio: 2/1;">
+                
+                <div class="flexyfill" style="margin: 0;"></div>
+            
+                <div onclick="window.location.href = 'http://192.168.4.1/settings';"
+                     class="flexybox" style="width: 25%;
+                                             aspect-ratio: 1;
+                                             background-color: #ff7518;
+                                             font-size: 2vmin;
+                                             cursor: pointer;
+                                             border-radius: 100%;">
+                    <div>
+                        Settings
+                    </div>
+                </div>
+                
+                <div class="flexyfill" style="margin: 0;"></div>
+                
+                <div onclick="window.location.href = '/exit';"
+                     class="flexybox" style="width: 40%;
+                                             aspect-ratio: 1;
+                                             background-color: #ef3038;
+                                             font-size: 3.6vmin;
+                                             cursor: pointer;
+                                             border-radius: 100%;">
+                    <div>
+                        Exit
+                    </div>
+                </div>
+                
+                <div class="flexyfill" style="margin: 0;"></div>
+                
+            </div>
+            
+        </div>
+    </body>
+</html>

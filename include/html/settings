@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Settings</title>
+        
+        <script src="templating.js"></script>
+        <link rel="stylesheet" href="flexybox.css">
+        <script src="WV.js"></script>
+        
+        <script>
+            
+            function webvar_input({text,name}) {
+                if (text === undefined) text = name;
+                return `<div class="flexybox webvar_row">
+                            <div class="flexybox-r" style="text-align: right;">
+                                ${text}
+                            </div>
+                            <div class="flexybox">
+                                <input style="width: 100%;" data-webvar="${name}" ></input>
+                            </div>
+                        </div>`;
+            }
+            
+            function webvar_text({text,name}) {
+                if (text === undefined) text = name;
+                return `<div class="flexybox webvar_row">
+                            <div class="flexybox-r">
+                                ${text}
+                            </div>
+                            <div class="flexybox">
+                                <a data-webvar="${name}" ></a>
+                            </div>
+                        </div>`;
+            }
+            
+        </script>
+        
+        
+        
+        <script>
+            window.addEventListener("load", function() {
+                generate_templates();
+                WebVars.begin(true, true);
+            });
+        </script>
+        
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            
+            html {
+                height: 100%;
+            }
+            
+            body {
+                height: 100%;
+                margin:  0;
+                padding: 15px;
+                font-family: Arial;
+                /*color: #ffffff7f;
+                background-color: #151620;*/
+            }
+            
+            #main_container {
+                max-width: 500px;
+                margin: auto;
+                min-height: 100%;
+            }
+            
+            .webvar_row > * {
+                width: 50%;
+            }
+            
+            .webvar_row > *:first-child {
+                padding: 5px;
+            }
+            
+            [class*="wv-"] {
+                width: 100%;
+                padding: 5px;
+            }
+            
+            #main_container > * {
+                width: 100%;
+                margin: 0;
+                border-bottom: 1px solid black;
+            }
+            
+            #main_container > *:last-child {
+                border-bottom: none;
+            }
+            
+            #main_container > * > * {
+                margin: 5px 0;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div id="main_container" class="flexybox-col flexybox-t">
+        
+            <div class="flexybox-l">
+                <button onclick="history.back()">Back</button>
+            </div>
+            
+            <div class="flexybox" style="margin: 2px 0 0 0;"></div>
+            
+            <div data-template="webvar_input">
+                {"text":"Acces Point/WiFi name", "name":"AP_name"}
+            </div>
+            
+            <div data-template="webvar_input">
+                {"text":"Acces Point/WiFi password", "name":"AP_pass"}
+            </div>
+            
+            <div data-template="webvar_input">
+                {"text":"Admin password", "name":"admin_pass"}
+            </div>
+            
+            <div class="flexybox" style="margin: 2px 0 0 0;"></div>
+            
+            <div data-template="webvar_input">
+                {"text":"Duration lock stays open", "name":"unlock_time"}
+            </div>
+            
+            <div class="flexybox" style="margin: 2px 0 0 0;"></div>
+            
+            <div class="flexybox-c">
+                <form method="POST" action="/handle_update" enctype="multipart/form-data" onsubmit="this.querySelector('.fuplpass').value = WebVars.password;">
+                    <input class="fuplpass" type="hidden" name="_password">
+                    <input type="file" name="update">
+                    <input type="submit" value="Update">
+                </form>
+            </div>
+            
+            <div class="flexybox" style="margin: 2px 0 0 0;"></div>
+            
+            <div class="flexybox-c">
+                <form method="POST" action="/restart" enctype="multipart/form-data" onsubmit="this.querySelector('.fuplpass').value = WebVars.password;">
+                    <input class="fuplpass" type="hidden" name="_password">
+                    <input type="submit" value="Restart">
+                </form>
+            </div>
+            
+            <div class="flexybox" style="margin: 2px 0 0 0;"></div>
+            
+            <div class="flexybox">
+                <button onclick="WebVars.save();">Save</button>
+            </div>
+        </div>
+    </body>
+</html>
